@@ -36,7 +36,7 @@ public class LeafDropper : MonoBehaviour {
 			for (int i = 0; i < Random.Range (0, 3); i++) {
 				Vector3 position = tree.transform.position + new Vector3 (Random.Range (-10, 10), 0, Random.Range (-10, 10));
 				Quaternion rotation = Quaternion.Euler (-90, Random.Range (0, 359), 0);
-				GameObject leafPile = Instantiate (piles [0], position, rotation, this.transform) as GameObject;
+				GameObject leafPile = Instantiate (piles [Random.Range(0,piles.Length)], position, rotation, this.transform) as GameObject;
 				leafPile.GetComponent<Renderer> ().material = autumnController.materials [treeScript.leafMaterialX, treeScript.leafMaterialY];
 				LeafPile pileScript = leafPile.GetComponent<LeafPile> ();
 				pileScript.leafIndexX = (treeScript.leafMaterialX - (2 * treeScript.leafMaterialSpread));
