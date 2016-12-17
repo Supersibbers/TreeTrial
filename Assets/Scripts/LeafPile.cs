@@ -29,8 +29,8 @@ public class LeafPile : MonoBehaviour {
 			int index = Random.Range (0, leafTransformPositions.Length);
 			GameObject leaf = Instantiate (leaves[0], leafTransformPositions [index], leafTransformRotations [index], this.transform) as GameObject;
 			leaf.transform.parent = this.transform;
-			leaf.transform.localScale = Vector3.one;
-			leaf.GetComponent<Renderer>().material = autumnController.materials[leafIndexX, leafIndexY];
+			leaf.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+			leaf.GetComponent<Renderer>().material.color = autumnController.materials[leafIndexX, leafIndexY].color;
 		}
 	}
 }
